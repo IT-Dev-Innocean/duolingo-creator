@@ -1,0 +1,25 @@
+{
+  "name": "Duolingo Creators",
+  "short_name": "Creators",
+  "description": "Pantau posisi dan progres komunitas Duolingo Creators.",
+  "theme_color": "#58cc02",
+  "background_color": "#f8fdec",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

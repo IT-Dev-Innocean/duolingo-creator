@@ -1,0 +1,17 @@
+{
+  "currentCreator": {
+    "id": 4,
+    "name": "Kamu",
+    "handle": "@creator",
+    "points": 1840,
+    "growth": 12,
+    "avatar": "KA"
+  },
+  "leaderboard": [
+    { "id": 1, "name": "Nadia Putri", "handle": "@nadialearns", "points": 4280, "growth": 18, "avatar": "NP" },
+    { "id": 2, "name": "Raka Pratama", "handle": "@rakabahasa", "points": 3610, "growth": 14, "avatar": "RP" },
+    { "id": 3, "name": "Cinta Amelia", "handle": "@cintatalks", "points": 2945, "growth": 9, "avatar": "CA" },
+    { "id": 4, "name": "Kamu", "handle": "@creator", "points": 1840, "growth": 12, "avatar": "KA" },
+    { "id": 5, "name": "Dimas Ardi", "handle": "@dimasdaily", "points": 1580, "growth": 7, "avatar": "DA" }
+  ]
+}

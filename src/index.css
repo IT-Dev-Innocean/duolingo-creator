@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    Nunito, ui-rounded, "SF Pro Rounded", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #17223b;
+  background: #f5f7ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #58cc02;
+  --green-dark: #46a302;
+  --ink: #17223b;
+  --muted: #667085;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f5f7ef;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100svh;
+}
