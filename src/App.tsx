@@ -5,7 +5,6 @@ import {
   Check,
   ChevronDown,
   LockKeyhole,
-  Sparkles,
 } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import {
@@ -17,9 +16,11 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { BlurFade } from './components/magicui/blur-fade';
-import { ShimmerButton } from './components/magicui/shimmer-button';
 import Dashboard from './pages/dashboard';
 import './App.css';
+import duoImg from './assets/duo-loginscreen.png';
+import Rewards from './pages/rewards';
+import Faqs from './pages/faqs';
 
 type FormValues = {
   countryCode: string;
@@ -27,82 +28,31 @@ type FormValues = {
 };
 
 const countries = [
-  { code: '+62', flag: '🇮🇩', name: 'Indonesia' },
-  { code: '+60', flag: '🇲🇾', name: 'Malaysia' },
-  { code: '+65', flag: '🇸🇬', name: 'Singapore' },
-  { code: '+63', flag: '🇵🇭', name: 'Philippines' },
+  { code: '+62', iso: 'id', name: 'Indonesia' },
+  { code: '+60', iso: 'my', name: 'Malaysia' },
+  { code: '+65', iso: 'sg', name: 'Singapore' },
+  { code: '+63', iso: 'ph', name: 'Philippines' },
 ];
 
 function DuoMascot() {
   return (
-    <motion.svg
+    <motion.img
+      src={duoImg}
+      alt='Maskot Duolingo'
       className='duo'
-      viewBox='0 0 240 210'
-      role='img'
-      aria-label='Maskot burung hantu hijau melambaikan sayap'
-      initial={{ rotate: -3, scale: 0.92 }}
-      animate={{ rotate: [0, 2, 0], scale: 1 }}
+      initial={{ rotate: -3, scale: 0.92, y: 0 }}
+      animate={{ 
+        rotate: [-1, 2, -1], 
+        scale: 1, 
+        y: [0, -8, 0] 
+      }}
       transition={{
-        rotate: { duration: 2.4, repeat: Infinity, ease: 'easeInOut' },
+        rotate: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+        y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
         scale: { duration: 0.5 },
-      }}>
-      <motion.g
-        animate={{ y: [0, -4, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
-        <path
-          d='M72 53C91 26 128 22 157 41c30-3 55 5 60 26 4 17-4 31-20 39v43c0 32-27 47-65 47H98c-39 0-65-16-65-49V91c0-31 14-44 39-38Z'
-          fill='#58cc02'
-        />
-        <path
-          d='M172 58c29-17 55-8 59 7 5 18-10 46-39 58l-20-65Z'
-          fill='#58cc02'
-        />
-        <path
-          d='M57 64c-16 1-29 15-28 34 1 16 11 30 26 36l17-73-15 3Z'
-          fill='#58cc02'
-        />
-        <ellipse cx='105' cy='88' rx='37' ry='38' fill='#8ee000' />
-        <ellipse cx='163' cy='88' rx='37' ry='38' fill='#8ee000' />
-        <ellipse cx='105' cy='90' rx='25' ry='29' fill='#fff' />
-        <ellipse cx='163' cy='90' rx='25' ry='29' fill='#fff' />
-        <ellipse cx='111' cy='94' rx='11' ry='17' fill='#1f2430' />
-        <ellipse cx='157' cy='94' rx='11' ry='17' fill='#1f2430' />
-        <circle cx='115' cy='88' r='4' fill='#fff' />
-        <circle cx='161' cy='88' r='4' fill='#fff' />
-        <path
-          d='M120 113c8-8 21-8 29 0-1 15-7 22-15 22s-13-7-14-22Z'
-          fill='#ff9600'
-        />
-        <path d='M121 114h27c-4 7-21 7-27 0Z' fill='#ffb020' />
-        <path
-          d='M87 143c8 5 18 8 28 9M153 152c10-1 19-4 27-9'
-          fill='none'
-          stroke='#46ad00'
-          strokeLinecap='round'
-          strokeWidth='10'
-        />
-        <path
-          d='M92 184c1-12 11-18 22-11l8 13c-8 9-25 8-30-2Z'
-          fill='#ffb020'
-        />
-        <path
-          d='M148 186l8-13c11-7 21-1 22 11-5 10-22 11-30 2Z'
-          fill='#ffb020'
-        />
-      </motion.g>
-      <g fill='#8ee000'>
-        <path d='m25 50 5 10 10 5-10 5-5 10-5-10-10-5 10-5 5-10Z' />
-        <path d='m218 133 4 8 8 4-8 4-4 8-4-8-8-4 8-4 4-8Z' />
-        <path d='m205 22 3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6Z' />
-      </g>
-      <motion.path
-        d='M176 17c5-8 17-5 17 4 7-6 17 1 13 9-4 8-16 12-16 12s-15-8-16-16c-1-4 0-7 2-9Z'
-        fill='#58cc02'
-        animate={{ scale: [1, 1.12, 1] }}
-        style={{ transformOrigin: '190px 29px' }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      />
-    </motion.svg>
+      }}
+      style={{ width: '100%', maxWidth: '240px', objectFit: 'contain', display: 'block', margin: '0 auto' }}
+    />
   );
 }
 
@@ -148,10 +98,6 @@ function App() {
                 transition={{ duration: 0.25 }}>
                 <BlurFade className='welcome' delay={0.05}>
                   <div className='welcome__copy'>
-                    <span className='eyebrow'>
-                      <Sparkles size={13} />
-                      Creator hub
-                    </span>
                     <h1>Welcome, Creator!</h1>
                     <p>
                       Enter your phone number to access the Creator Leaderboard
@@ -182,12 +128,12 @@ function App() {
                               className='country-trigger'
                               aria-label='Pilih negara'>
                               <Select.Value>
-                                <span>
-                                  {
-                                    countries.find(
-                                      (country) => country.code === field.value
-                                    )?.flag
-                                  }{' '}
+                                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                  <img
+                                    src={`https://flagcdn.com/w20/${countries.find((c) => c.code === field.value)?.iso}.png`}
+                                    alt="flag"
+                                    style={{ width: '24px', borderRadius: '2px', display: 'block' }}
+                                  />
                                   {field.value}
                                 </span>
                               </Select.Value>
@@ -207,12 +153,20 @@ function App() {
                                       key={country.code}
                                       value={country.code}>
                                       <Select.ItemText>
-                                        <span>{country.flag}</span>
-                                        <span>{country.code}</span>
-                                        <small>{country.name}</small>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                          <img
+                                            src={`https://flagcdn.com/w20/${country.iso}.png`}
+                                            alt={country.name}
+                                            style={{ width: '20px', borderRadius: '2px' }}
+                                          />
+                                          <span>{country.code}</span>
+                                          <small style={{ color: '#8a93a2', fontSize: '12px' }}>
+                                            {country.name}
+                                          </small>
+                                        </div>
                                       </Select.ItemText>
-                                      <Select.ItemIndicator>
-                                        <Check size={15} />
+                                      <Select.ItemIndicator style={{ marginLeft: 'auto' }}>
+                                        <Check size={15} color="#58cc02" />
                                       </Select.ItemIndicator>
                                     </Select.Item>
                                   ))}
@@ -246,7 +200,7 @@ function App() {
                       {errors.phone?.message ?? '\u00A0'}
                     </div>
 
-                    <ShimmerButton type='submit' disabled={isLoading}>
+                    <button className='submit-btn' type='submit' disabled={isLoading}>
                       {isLoading ? (
                         <span className='loading-dots' aria-label='Memuat'>
                           <i />
@@ -259,7 +213,7 @@ function App() {
                           <ArrowRight size={22} strokeWidth={2.8} />
                         </>
                       )}
-                    </ShimmerButton>
+                    </button>
 
                     <p className='privacy'>
                       <LockKeyhole size={16} fill='currentColor' />
@@ -272,6 +226,9 @@ function App() {
           />
 
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/rewards' element={<Rewards />} />
+          <Route path='/faqs' element={<Faqs />} />
+          
           <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       </AnimatePresence>
