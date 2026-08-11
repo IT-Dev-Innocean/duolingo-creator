@@ -71,7 +71,7 @@ function Faqs() {
           </h3>
           
           <div className="duo-list-card">
-            {categoryRewards.map((item, index) => (
+            {categoryRewards.map((item) => (
               <div className="duo-list-row" key={item.id}>
                 <div className="duo-icon-wrap" style={{ background: item.bg }}>
                   {item.icon}
@@ -100,7 +100,7 @@ function Faqs() {
           </div>
           
           <div className="duo-list-card">
-            {performanceRewards.map((item, index) => (
+            {performanceRewards.map((item) => (
               <div className="duo-list-row" key={item.id}>
                 <div className="duo-icon-wrap" style={{ background: item.bg }}>
                   {item.icon}
